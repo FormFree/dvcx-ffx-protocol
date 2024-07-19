@@ -1,0 +1,4 @@
+include: [".well-known"]
+theme: jekyll-theme-minimal
+title: FormFree
+description: Welcome to FormFree!
