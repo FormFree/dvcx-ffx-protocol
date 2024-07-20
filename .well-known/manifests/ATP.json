@@ -1,0 +1,122 @@
+{
+    "id": "ATP",
+    "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
+    "issuer": {
+        "id": "https://formfree.github.io/.well-known/did.json",
+        "name": "FormFree",
+        "styles": {
+            "thumbnail": {
+                "uri": "https://formfree.github.io/images/thumbnail.jpg",
+                "alt": "FormFree logo"
+            },
+            "hero": {
+                "uri": "https://formfree.github.io/images/hero.jpg",
+                "alt": "FormFree hero"
+            },
+            "background": {
+                "color": "#FFFFFF"
+            },
+            "text": {
+                "color": "#000000"
+            }
+        }
+    },
+    "output_descriptors": [
+        {
+            "id": "atp_output",
+            "name": "ATP",
+            "schema": "https://formfree.github.io/.well-known/schemas/ffx/ATPCredential.json"
+        }
+    ],
+    "format": {
+        "jwt_vc": {
+            "alg": [
+                "EdDSA"
+            ]
+        }
+    },
+    "presentation_definition": {
+        "id": "financial_data_presentation",
+        "input_descriptors": [
+            {
+                "id": "financial_identity_input",
+                "purpose": "Identity information provided by financial institution",
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.type[*]"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "^FinancialIdentityCredential$"
+                            }
+                        },
+                        {
+                            "path": [
+                                "$.credentialSubject.customer.customerId",
+                                "$.credentialSubject.customer.name.first",
+                                "$.credentialSubject.customer.name.last",
+                                "$.credentialSubject.customer.name.middle",
+                                "$.credentialSubject.customer.name.prefix",
+                                "$.credentialSubject.customer.name.suffix",
+                                "$.credentialSubject.customer.addresses[0].line1",
+                                "$.credentialSubject.customer.addresses[0].city",
+                                "$.credentialSubject.customer.addresses[0].state",
+                                "$.credentialSubject.customer.addresses[0].country",
+                                "$.credentialSubject.customer.addresses[0].postalCode",
+                                "$.credentialSubject.customer.email[0]",
+                                "$.credentialSubject.customer.phone[0].number"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "financial_accounts_input",
+                "purpose": "Accounts information provided by a financial institution",
+                "format": "https://schema.org/DepositAccount",
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.type[*]"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "^BankAccountCredential$"
+                            }
+                        },
+                        {
+                            "path": [
+                                "$.credentialSubject.accounts[0]"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "financial_transactions_input",
+                "purpose": "Transaction information provided by a financial institution",
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.type[*]"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "^BankTransactionCredential$"
+                            }
+                        },
+                        {
+                            "path": [
+                                "$.credentialSubject.transactions[0]"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

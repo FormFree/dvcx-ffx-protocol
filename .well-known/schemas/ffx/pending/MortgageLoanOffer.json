@@ -1,0 +1,69 @@
+{
+    "id": "MORTGAGE-LOAN-OFFER",
+    "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
+    "issuer": {
+        "id": "[replaced dynamically]",
+        "name": "[replaced dynamically]"
+    },
+    "output_descriptors": [
+        {
+            "id": "mortgage_loan_offer_output",
+            "name": "Mortgage Loan Offer",
+            "schema": "https://schema.org/MortgageLoan"
+        }
+    ],
+    "format": {
+        "jwt_vc": {
+            "alg": [
+                "EdDSA"
+            ]
+        }
+    },
+    "presentation_definition": {
+        "id": "atp_presentation",
+        "input_descriptors": [
+            {
+                "id": "atp_input",
+                "purpose": "Ability To Pay data provided by FormFree",
+                "format": "https://formfree.github.io/.well-known/schemas/ffx/ATPCredential.json",
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.type[*]"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "^ATPCredential$"
+                            }
+                        },
+                        {
+                            "path": [
+                                "$.credentialSubject.borrower.borrowerId",
+                                "$.credentialSubject.borrower.firstName",
+                                "$.credentialSubject.borrower.lastName",
+                                "$.credentialSubject.borrower.veteran",
+                                "$.credentialSubject.borrower.address.street",
+                                "$.credentialSubject.borrower.address.city",
+                                "$.credentialSubject.borrower.address.state",
+                                "$.credentialSubject.borrower.address.zip",
+                                "$.credentialSubject.borrower.email",
+                                "$.credentialSubject.borrower.phone",
+                                "$.credentialSubject.riki.rikiScore",
+                                "$.credentialSubject.riki.borrowingPowerLowerBound",
+                                "$.credentialSubject.riki.borrowingPowerUpperBound",
+                                "$.credentialSubject.riki.creditRange",
+                                "$.credentialSubject.riki.borrowingPowerUpperBound",
+                                "$.credentialSubject.loanType",
+                                "$.credentialSubject.loanAmount",
+                                "$.credentialSubject.homeLoanSubtype",
+                                "$.credentialSubject.homeLoanPropertyType",
+                                "$.credentialSubject.homeLoanPropertyUse"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
