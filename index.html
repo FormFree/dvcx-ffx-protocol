@@ -4,29 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>formfree.github.io</title>
+    <title>FormFree Protocols & Schemas | formfree.github.io</title>
 </head>
 
 <body>
-    <h1>FormFree Protocols & Schemas</h1>
+    <img src="/images/hero.jpg" height="250" width="750" />
+    <h1>FormFree .well-known files</h1>
+    <p>This repo contains .well-known files for FormFree Holdings Corporation</p>
     <div>
         <h2>DCX</h2>
+        <p>For more information about DCX, check out the following links:</p>
+        <ul>
+            <li>
+                <a target="_blank" href="https://github.com/TBD54566975/incubation-dcx">
+                    github.com/TBD54566975/incubation-dcx
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.npmjs.com/package/@dcx-protocol/root">
+                    npmjs.com/package/@dcx-protocol/root
+                </a>
+            </li>
+        </ul>
         <div>
-            <h5>Protocols</h5>
+            <h3>Protocols</h3>
+            <p>These are DWN protocols for the issuer and applicant side of DCX, as well as the full exchange (both
+                sides). Protocols define the CRUD operations permitted on the different DWN records defined in the
+                Schemas section below. Credential Exchange Protocol is not implemented directly. It is implemented
+                separately but is provided here for reference.</p>
             <ul>
-                <li><a href="./.well-known/protocols/dcx/credential-issuer.json">credential-issuer.json</a></li>
-                <li><a href="./.well-known/protocols/dcx/credential-applicant.json">credential-applicant.json</a></li>
-                <li><a href="./.well-known/protocols/dcx/credential-exchange.json">credential-exchange.json</a></li>
+                <li><a href="/.well-known/protocols/dcx/credential-issuer.json">Credential Issuer Protocol</a></li>
+                <li><a href="/.well-known/protocols/dcx/credential-applicant.json">Credential Applicant Protocol</a>
+                </li>
+                <li><a href="/.well-known/protocols/dcx/credential-exchange.json">Credential Exchange Protocol</a></li>
             </ul>
         </div>
-        <br />
         <div>
-            <h5>Schemas</h5>
+            <h3>Schemas</h3>
             <ul>
-                <li><a href="./.well-known/schemas/dcx/application.json">application.json</a></li>
-                <li><a href="./.well-known/schemas/dcx/invoice.json">invoice.json</a></li>
-                <li><a href="./.well-known/schemas/dcx/manifest.json">manifest.json</a></li>
-                <li><a href="./.well-known/schemas/dcx/response.json">response.json</a></li>
+                <li>
+                    <a href="/.well-known/schemas/dcx/application.json">Application Schema</a>
+                    <ul>
+                        <li>
+                            Schema definition for application DWN records. Submitted by DCX applicants to DCX issuer
+                            DWNs.
+                        </li>
+                        <li>
+                            Includes the actual input credential proofs of credentials currently held by DCX applicants.
+                        </li>
+                        <li>
+                            Used to request a new output credential from a DCX issuer.
+                        </li>
+                    </ul>
+                </li>
+                <br />
+                <li>
+                    <a href="/.well-known/schemas/dcx/manifest.json">Manifest Schema</a>
+                    <ul>
+                        <li>
+                            Schema definition for manifest DWN records. Created by issuers in their own DWNs.
+                        </li>
+                        <li>
+                            Conforms to the DIF spec for <a
+                                href="https://github.com/TBD54566975/incubation-dcx?tab=readme-ov-file#credential-manifest">
+                                credential manifests.
+                            </a>
+                        </li>
+                        <li>
+                            Defines the input credentials required to obtain an output credential and the type of output
+                            credential.
+                        </li>
+                        <li>
+                            Read by applicants and used to know what credentials they need to acquire before requesting
+                            an output credential from a DCX issuer.
+                        </li>
+                    </ul>
+                </li>
+                <br />
+                <li>
+                    <a href="/.well-known/schemas/dcx/response.json">Response Schema</a>
+                    <ul>
+                        <li>Schema definition for response DWN records.</li>
+                        <li>Created by DCX issuers in response to an application record.</li>
+                        <li>Contains either an approval + output VC or a denial + reasoning.</li>
+                    </ul>
+                </li>
+                <br />
+                <li>
+                    <a href="/.well-known/schemas/dcx/invoice.json">Invoice Schema</a>
+                    <ul>
+                        <li>Optional Schema definition for invoice DWN records.</li>
+                        <li>Created by DCX issuers and sent to DCX applicant DWNs.</li>
+                        <li>Currently unimplemented in the DCX npm package.</li>
+                    </ul>
+                </li>
+                <br />
             </ul>
         </div>
     </div>
