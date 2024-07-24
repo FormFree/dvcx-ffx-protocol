@@ -1,5 +1,5 @@
 {
-    "protocol": "https://formfree.github.io/.well-known/protocols/dcx/credential-applicant.json",
+    "protocol": "https://formfree.github.io/.well-known/protocols/dcx/credential-applicant",
     "published": false,
     "types": {
         "application": {
