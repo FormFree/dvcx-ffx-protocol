@@ -26,25 +26,25 @@ Credential Exchange Protocol is not implemented directly. It is implemented sepa
 
 ### Schemas
 
-- [DCX Application Record Schema](/.well-known/schema/application.json)
+- [Application Record Schema](/.well-known/schema/dcx-application-record.json)
   - Schema definition for application DWN records
   - Submitted by DCX applicants to DCX issuer DWNs
   - Includes the actual input credential proofs of credentials currently held by DCX applicants
   - Used to request a new output credential from a DCX issuer
 
-- [DCX Manifest Record Schema](/.well-known/schema/manifest.json)
+- [Manifest Record Schema](/.well-known/schema/dcx-manifest-record.json)
   - Schema definition for manifest DWN records 
   - Created by issuers in their own DWNs
   - Conforms to the DIF spec for [credential manifests](https://github.com/TBD54566975/incubation-dcx?tab=readme-ov-file#credential-manifest)
   - Defines the input credentials required to obtain an output credential and the type of output credential
   - Read by applicants and used to know what credentials they need to acquire before requesting an output credential from a DCX issuer
 
-- [DCX Response Record Schema](/.well-known/schema/response.json)
+- [Response Record Schema](/.well-known/schema/dcx-response-record.json)
   - Schema definition for response DWN records; 
   - Created by DCX issuers in response to an application record
   - Contains either an approval + output VC or a denial + reasoning
 
-- [DCX Invoice Record Schema](/.well-known/schema/invoice.json)
+- [Invoice Record Schema](/.well-known/schema/dcx-invoice-record.json)
   -  Optional Schema definition for invoice DWN records
   -  Created by DCX issuers and sent to DCX applicant DWNs
   -  Currently unimplemented in the DCX npm package
