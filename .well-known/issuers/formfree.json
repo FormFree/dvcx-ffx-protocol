@@ -1,0 +1,54 @@
+{
+    "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy",
+    "verificationMethod": [
+        {
+            "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0",
+            "type": "JsonWebKey",
+            "controller": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy",
+            "publicKeyJwk": {
+                "crv": "Ed25519",
+                "kty": "OKP",
+                "x": "4wu0b2EK9atqFXt3c_6RegTwKzu0-l20eibE3-aqBCg",
+                "kid": "-VR8gBA1rFo25DV63BmsxQ3bXYEptwu94QsUAcMzTGA",
+                "alg": "EdDSA"
+            }
+        },
+        {
+            "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#sig",
+            "type": "JsonWebKey",
+            "controller": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy",
+            "publicKeyJwk": {
+                "crv": "Ed25519",
+                "kty": "OKP",
+                "x": "wgJJSud6AupDaaam9jxZv_evpzQQorD4WIGV0xUXtIc",
+                "kid": "Ay0A46vqeeTbchPbBKMMHWucDFyBttAcyaDyukLZLcA",
+                "alg": "EdDSA"
+            }
+        }
+    ],
+    "authentication": [
+        "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0",
+        "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#sig"
+    ],
+    "assertionMethod": [
+        "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0",
+        "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#sig"
+    ],
+    "capabilityDelegation": [
+        "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0"
+    ],
+    "capabilityInvocation": [
+        "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0"
+    ],
+    "service": [
+        {
+            "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#dwn",
+            "type": "DecentralizedWebNode",
+            "serviceEndpoint": [
+                "https://dwn.gcda.xyz/"
+            ],
+            "enc": "#enc",
+            "sig": "#sig"
+        }
+    ]
+}

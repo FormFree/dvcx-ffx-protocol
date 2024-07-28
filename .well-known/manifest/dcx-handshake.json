@@ -11,7 +11,7 @@
         {
             "id": "dcx_handshake_output",
             "name": "DCX Handshake Credential",
-            "schema": "https://decentralized.cx/schemas/DCXHandshakeCredential"
+            "schema": "https://decentralized.cx/credential/dcxhandshake.json"
         }
     ],
     "format": {
@@ -22,11 +22,11 @@
         }
     },
     "presentation_definition": {
-        "id": "example-presentation-definition-id",
+        "id": "dcx_handshake_presentation",
         "input_descriptors": [
             {
-                "id": "example-presentation-definition-input-descriptor-id",
-                "purpose": "Meant as an example to developers",
+                "id": "dcx_handshake_input",
+                "purpose": "DCX Applicant initiates handshake proving did ownership",
                 "constraints": {
                     "fields": [
                         {

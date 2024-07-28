@@ -25,7 +25,7 @@
             {
                 "id": "atp_input",
                 "purpose": "Ability To Pay data provided by FormFree",
-                "format": "https://formfree.github.io/.well-known/schemas/ffx/ATPCredential.json",
+                "format": "https://formfree.github.io/.well-known/credential/AbilityToPayCredential.json",
                 "constraints": {
                     "fields": [
                         {

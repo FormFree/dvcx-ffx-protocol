@@ -1,27 +1,27 @@
 {
-    "protocol": "https://formfree.github.io/.well-known/protocols/dcx/credential-exchange",
+    "protocol": "https://formfree.github.io/.well-known/protocol/dcx",
     "published": false,
     "types": {
         "application": {
-            "schema": "https://formfree.github.io/.well-known/schemas/dcx/application.json",
+            "schema": "https://formfree.github.io/.well-known/schema/dcx-application-record.json",
             "dataFormats": [
                 "application/json"
             ]
         },
         "manifest": {
-            "schema": "https://formfree.github.io/.well-known/schemas/dcx/manifest.json",
+            "schema": "https://formfree.github.io/.well-known/schema/dcx-manifest-record.json",
             "dataFormats": [
                 "application/json"
             ]
         },
         "response": {
-            "schema": "https://formfree.github.io/.well-known/schemas/dcx/response.json",
+            "schema": "https://formfree.github.io/.well-known/schema/dcx-response-record.json",
             "dataFormats": [
                 "application/json"
             ]
         },
         "invoice": {
-            "schema": "https://formfree.github.io/.well-known/schemas/dcx/invoice.json",
+            "schema": "https://formfree.github.io/.well-known/schema/dcx-invoice-record.json",
             "dataFormats": [
                 "application/json"
             ]
@@ -32,44 +32,6 @@
             "$actions": [
                 {
                     "who": "anyone",
-                    "can": [
-                        "read"
-                    ]
-                }
-            ]
-        },
-        "response": {
-            "$actions": [
-                {
-                    "who": "recipient",
-                    "of": "application",
-                    "can": [
-                        "create",
-                        "update"
-                    ]
-                },
-                {
-                    "who": "author",
-                    "of": "application",
-                    "can": [
-                        "read"
-                    ]
-                }
-            ]
-        },
-        "invoice": {
-            "$actions": [
-                {
-                    "who": "recipient",
-                    "of": "application",
-                    "can": [
-                        "create",
-                        "update"
-                    ]
-                },
-                {
-                    "who": "author",
-                    "of": "application",
                     "can": [
                         "read"
                     ]
