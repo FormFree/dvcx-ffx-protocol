@@ -4,14 +4,30 @@
     "description": "Basic handshake manifest used to establish a connection between a DCX applicant and a DCX issuer.",
     "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
     "issuer": {
-        "id": "",
-        "name": "formfree"
+        "id": "https://formfree.github.io/.well-known/issuers/formfree.json",
+        "name": "FormFree",
+        "styles": {
+            "thumbnail": {
+                "uri": "https://formfree.github.io/images/thumbnail.jpg",
+                "alt": "FormFree Logo"
+            },
+            "hero": {
+                "uri": "https://formfree.github.io/images/hero.jpg",
+                "alt": "FormFree Hero Image"
+            },
+            "background": {
+                "color": "#FFFFFF"
+            },
+            "text": {
+                "color": "#000000"
+            }
+        }
     },
     "output_descriptors": [
         {
             "id": "dcx_handshake_output",
             "name": "DCX Handshake Credential",
-            "schema": "https://decentralized.cx/credential/dcxhandshake.json"
+            "schema": "https://formfree.github.io/.well-known/credential/DcxHandshakeCredential.json"
         }
     ],
     "format": {
@@ -40,9 +56,7 @@
                         },
                         {
                             "path": [
-                                "$.credentialSubject.some.unique.field1",
-                                "$.credentialSubject.some.unique.field2",
-                                "$.credentialSubject.some.unique.fieldn"
+                                "$.credentialSubject.did"
                             ]
                         }
                     ]
