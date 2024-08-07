@@ -45,7 +45,7 @@
             "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#dwn",
             "type": "DecentralizedWebNode",
             "serviceEndpoint": [
-                "https://dwn.gcda.xyz/"
+                "https://dwn.tbddev.org/beta"
             ],
             "enc": "#enc",
             "sig": "#sig"
