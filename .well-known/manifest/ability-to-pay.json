@@ -1,0 +1,121 @@
+{
+    "id": "ABILITY-TO-PAY",
+    "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
+    "issuer": {
+        "id": "https://formfree.github.io/.well-known/issuers/formfree.json",
+        "name": "FormFree",
+        "styles": {
+            "thumbnail": {
+                "uri": "https://formfree.github.io/images/thumbnail.jpg",
+                "alt": "FormFree Logo"
+            },
+            "hero": {
+                "uri": "https://formfree.github.io/images/hero.jpg",
+                "alt": "FormFree Hero Image"
+            },
+            "background": {
+                "color": "#FFFFFF"
+            },
+            "text": {
+                "color": "#000000"
+            }
+        }
+    },
+    "output_descriptors": [
+        {
+            "id": "ability-to-pay-credential",
+            "name": "Ability to Pay Credential",
+            "schema": "https://formfree.github.io/.well-known/credential/AbilityToPayCredential.json"
+        }
+    ],
+    "format": {
+        "jwt_vc": {
+            "alg": [
+                "EdDSA"
+            ]
+        }
+    },
+    "presentation_definition": {
+        "id": "financial-data-credentials",
+        "input_descriptors": [
+            {
+                "id": "financial-identity-credential",
+                "purpose": "Identity information provided by financial institution",
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.type[*]"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "^FinancialIdentityCredential$"
+                            }
+                        },
+                        {
+                            "path": [
+                                "$.credentialSubject.customer.customerId",
+                                "$.credentialSubject.customer.name.first",
+                                "$.credentialSubject.customer.name.last",
+                                "$.credentialSubject.customer.name.middle",
+                                "$.credentialSubject.customer.name.prefix",
+                                "$.credentialSubject.customer.name.suffix",
+                                "$.credentialSubject.customer.addresses[0].line1",
+                                "$.credentialSubject.customer.addresses[0].city",
+                                "$.credentialSubject.customer.addresses[0].state",
+                                "$.credentialSubject.customer.addresses[0].country",
+                                "$.credentialSubject.customer.addresses[0].postalCode",
+                                "$.credentialSubject.customer.email[0]",
+                                "$.credentialSubject.customer.phone[0].number"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "financial-accounts-credential",
+                "purpose": "Accounts information provided by a financial institution",
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.type[*]"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "^BankAccountCredential$"
+                            }
+                        },
+                        {
+                            "path": [
+                                "$.credentialSubject.accounts[0]"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "financial-transactions-credential",
+                "purpose": "Transaction information provided by a financial institution",
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.type[*]"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "^BankTransactionCredential$"
+                            }
+                        },
+                        {
+                            "path": [
+                                "$.credentialSubject.transactions[0]"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
