@@ -39,6 +39,10 @@
         "id": "financial-data-credentials",
         "input_descriptors": [
             {
+                "id": "monthly-housing-payment",
+                "purpose": "Borrower supplied monthly housing payment: mortgage or rent"
+            },
+            {
                 "id": "financial-identity-credential",
                 "purpose": "Identity information provided by financial institution",
                 "constraints": {
