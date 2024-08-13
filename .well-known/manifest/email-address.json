@@ -1,5 +1,5 @@
 {
-    "id": "PHONE-NUMBER-MANIFEST",
+    "id": "EMAIL-ADDRESS-MANIFEST",
     "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
     "issuer": {
         "id": "https://formfree.github.io/.well-known/issuers/formfree.json",
@@ -23,9 +23,9 @@
     },
     "output_descriptors": [
         {
-            "id": "phone-number-credential",
-            "name": "Phone Number Credential",
-            "schema": "https://formfree.github.io/.well-known/credential/PhoneNumberCredential.json"
+            "id": "email-address-credential",
+            "name": "Email Address Credential",
+            "schema": "https://formfree.github.io/.well-known/credential/EmailAddressCredential.json"
         }
     ],
     "format": {
@@ -36,15 +36,25 @@
         }
     },
     "presentation_definition": {
-        "id": "phone-number-presentation",
+        "id": "phone_number_presentation_definition",
         "input_descriptors": [
             {
-                "id": "phone-number-self-attestation-input",
-                "purpose": "Self-attested ownership of a phone number",
+                "id": "self_signed_phone_number_credential",
+                "purpose": "Self-signed credential attesting to ownership of a phone number",
                 "constraints": {
                     "fields": [
                         {
                             "path": [
+                                "$.type[*]"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "^PhoneNumberCredential$"
+                            }
+                        },
+                        {
+                            "path": [
+                                "$.credentialSubject.id",
                                 "$.credentialSubject.phoneNumber"
                             ]
                         }

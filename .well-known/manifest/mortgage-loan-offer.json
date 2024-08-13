@@ -1,13 +1,29 @@
 {
-    "id": "MORTGAGE-LOAN-OFFER",
+    "id": "MORTGAGE-LOAN-OFFER-MANIFEST",
     "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
     "issuer": {
-        "id": "[replaced dynamically]",
-        "name": "[replaced dynamically]"
+        "id": "https://formfree.github.io/.well-known/issuers/formfree.json",
+        "name": "FormFree",
+        "styles": {
+            "thumbnail": {
+                "uri": "https://formfree.github.io/images/thumbnail.jpg",
+                "alt": "FormFree Logo"
+            },
+            "hero": {
+                "uri": "https://formfree.github.io/images/hero.jpg",
+                "alt": "FormFree Hero Image"
+            },
+            "background": {
+                "color": "#FFFFFF"
+            },
+            "text": {
+                "color": "#000000"
+            }
+        }
     },
     "output_descriptors": [
         {
-            "id": "mortgage_loan_offer_output",
+            "id": "mortgage-loan-offer-output",
             "name": "Mortgage Loan Offer",
             "schema": "https://schema.org/MortgageLoan"
         }
@@ -20,45 +36,26 @@
         }
     },
     "presentation_definition": {
-        "id": "atp_presentation",
+        "id": "",
         "input_descriptors": [
             {
-                "id": "atp_input",
-                "purpose": "Ability To Pay data provided by FormFree",
-                "format": "https://formfree.github.io/.well-known/credential/AbilityToPayCredential.json",
+                "id": "",
+                "purpose": "",
+                "format": "",
                 "constraints": {
                     "fields": [
                         {
                             "path": [
-                                "$.type[*]"
+                                ""
                             ],
                             "filter": {
-                                "type": "string",
-                                "pattern": "^ATPCredential$"
+                                "type": "",
+                                "pattern": ""
                             }
                         },
                         {
                             "path": [
-                                "$.credentialSubject.borrower.borrowerId",
-                                "$.credentialSubject.borrower.firstName",
-                                "$.credentialSubject.borrower.lastName",
-                                "$.credentialSubject.borrower.veteran",
-                                "$.credentialSubject.borrower.address.street",
-                                "$.credentialSubject.borrower.address.city",
-                                "$.credentialSubject.borrower.address.state",
-                                "$.credentialSubject.borrower.address.zip",
-                                "$.credentialSubject.borrower.email",
-                                "$.credentialSubject.borrower.phone",
-                                "$.credentialSubject.riki.rikiScore",
-                                "$.credentialSubject.riki.borrowingPowerLowerBound",
-                                "$.credentialSubject.riki.borrowingPowerUpperBound",
-                                "$.credentialSubject.riki.creditRange",
-                                "$.credentialSubject.riki.borrowingPowerUpperBound",
-                                "$.credentialSubject.loanType",
-                                "$.credentialSubject.loanAmount",
-                                "$.credentialSubject.homeLoanSubtype",
-                                "$.credentialSubject.homeLoanPropertyType",
-                                "$.credentialSubject.homeLoanPropertyUse"
+                                ""
                             ]
                         }
                     ]
