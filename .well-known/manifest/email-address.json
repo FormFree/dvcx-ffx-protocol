@@ -36,26 +36,16 @@
         }
     },
     "presentation_definition": {
-        "id": "phone_number_presentation_definition",
+        "id": "email-address-presentation",
         "input_descriptors": [
             {
-                "id": "self_signed_phone_number_credential",
-                "purpose": "Self-signed credential attesting to ownership of a phone number",
+                "id": "email-address-input-descriptor",
+                "purpose": "Prove ownership of an email address",
                 "constraints": {
                     "fields": [
                         {
                             "path": [
-                                "$.type[*]"
-                            ],
-                            "filter": {
-                                "type": "string",
-                                "pattern": "^PhoneNumberCredential$"
-                            }
-                        },
-                        {
-                            "path": [
-                                "$.credentialSubject.id",
-                                "$.credentialSubject.phoneNumber"
+                                "$.credentialSubject.emailAddress"
                             ]
                         }
                     ]

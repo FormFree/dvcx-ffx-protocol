@@ -39,8 +39,8 @@
         "id": "phone-number-presentation",
         "input_descriptors": [
             {
-                "id": "phone-number-self-attestation-input",
-                "purpose": "Self-attested ownership of a phone number",
+                "id": "phone-number-input-descriptor",
+                "purpose": "Prove ownership of a phone number",
                 "constraints": {
                     "fields": [
                         {
