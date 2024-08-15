@@ -1,31 +1,61 @@
 {
-    "$id": "https://formfree.github.io/.well-known/schema/dcx-application-record.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The Credential Application is a JSON object containing verifiable credentials to prove certain claims. The claims are defined in a Credential Manifest which is related to the Credential Application by the manifest_id property. Credential Responses respond to a Credential Application.",
     "title": "Credential Application",
     "type": "object",
     "properties": {
-        "@context": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The @context of the application"
+        "id": {
+            "type": "string",
+            "description": "A unique identifier, such as a UUID"
         },
-        "type": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        "spec_version": {
+            "type": "string",
+            "$ref": "https://identity.foundation/credential-manifest/#versioning"
+        },
+        "applicant": {
+            "type": "string",
+            "description": "A URI which uniquely identifies the applicant such as their did"
+        },
+        "manifest_id": {
+            "type": "string",
+            "description": "The id of a valid Credential Manifest"
+        },
+        "format": {
+            "type": "object",
+            "description": "A subset of the format property in the Credential that this Credential Application is related to. This Credential Application strictly uses the jwt_vc format",
+            "jwt_vc": {
+                "type": "object",
+                "properties": {
+                    "alg": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string"
+                        },
+                        "pattern": "^EdDSA$"
+                    }
+                },
+                "required": [
+                    "alg"
+                ],
+                "additionalProperties": false
             },
-            "description": "The type property of the application"
+            "required": [
+                "jwt_vc"
+            ],
+            "additionalProperties": false
         },
         "presentation_submission": {
+            "description": "A valid Presentation Submission including the Verifiable Credentials that represent the Credential Application",
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A unique identifier for the presentation submission"
                 },
                 "definition_id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The id value of a valid Presentation Definition found in the Credential Manifest related to this Credential Application"
                 },
                 "descriptor_map": {
                     "type": "array",
@@ -33,32 +63,42 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
-                            },
-                            "path": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "The id property of the Input Descriptor in the Presentation Definition found in the Credential Manifest related to this Credential Application"
                             },
                             "format": {
-                                "type": "string"
+                                "type": "string",
+                                "description": "The value must match the format definition of the Credential Application above"
+                            },
+                            "path": {
+                                "type": "string",
+                                "description": "Represents a JSONPath expression to extract the Verifiable Credential from the Credential Application, i.e. which credential to use for this input descriptor"
                             }
-                        }
+                        },
+                        "required": [
+                            "id",
+                            "format",
+                            "path"
+                        ],
+                        "additionalProperties": false
                     }
                 }
             },
-            "description": "The Verifiable Credentials that represent your application"
-        },
-        "verifiableCredential": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The Verifiable Credentials to present in JWT format"
+            "required": [
+                "id",
+                "definition_id",
+                "descriptor_map"
+            ],
+            "additionalProperties": false
         }
     },
     "required": [
-        "@context",
-        "type",
-        "presentation_submission",
-        "verifiableCredential"
-    ]
+        "id",
+        "spec_version",
+        "applicant",
+        "manifest_id",
+        "format",
+        "presentation_submission"
+    ],
+    "additionalProperties": false
 }

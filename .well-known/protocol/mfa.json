@@ -1,0 +1,28 @@
+{
+    "protocol": "https://formfree.github.io/.well-known/protocol/mfa",
+    "published": false,
+    "types": {
+        "mfa": {
+            "schema": "https://formfree.github.io/.well-known/schema/mfa-record.json",
+            "dataFormats": [
+                "application/json"
+            ]
+        }
+    },
+    "structure": {
+        "mfa": {
+            "$actions": [
+                    {
+                        "who": "author",
+                        "of": "mfa",
+                        "can": [
+                            "create",
+                            "read",
+                            "update",
+                            "delete"
+                        ]
+                    }
+                ]
+        }
+    }
+}

@@ -1,100 +1,150 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://formfree.github.io/.well-known/schema/dcx-manifest-record.json",
     "title": "Credential Manifest",
     "type": "object",
+    "description": "Explains what the Manifest is generally offering in exchange for meeting its requirements",
     "properties": {
         "id": {
-            "type": "string"
+            "type": "string",
+            "description": "A unique ID for the Credential Manifest used to map back from the Credential Application"
         },
         "name": {
-            "type": "string"
+            "type": "string",
+            "description": ""
         },
         "description": {
-            "type": "string"
+            "type": "string",
+            "description": ""
         },
         "spec_version": {
-            "type": "string"
+            "type": "string",
+            "description": ""
         },
         "issuer": {
             "type": "object",
+            "description": "",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": ""
+                }
+            },
             "required": [
                 "id"
             ],
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "styles": {
-                    "$ref": "https://identity.foundation/wallet-rendering/schemas/entity-styles.json"
-                }
-            },
             "additionalProperties": false
         },
         "output_descriptors": {
             "type": "array",
+            "description": "A list of objects used to describe the verifiable credentials the Issuer will return to the Applicant upon submission and verification of a valid Credential Application",
             "items": {
                 "type": "object",
+                "description": "An object used to describe the verifiable credentials returned",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "A unique id that does not conflict with the id of another Output Descriptor Object in the same Credential Manifest"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema of the credential to be issued"
+                    }
+                },
                 "required": [
                     "id",
                     "schema"
                 ],
-                "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "description": {
-                        "type": "string"
-                    },
-                    "schema": {
-                        "type": "string"
-                    },
-                    "display": {
-                        "type": "object",
-                        "properties": {
-                            "title": {
-                                "$ref": "https://identity.foundation/wallet-rendering/schemas/display-mapping-object.json"
-                            },
-                            "subtitle": {
-                                "$ref": "https://identity.foundation/wallet-rendering/schemas/display-mapping-object.json"
-                            },
-                            "description": {
-                                "$ref": "https://identity.foundation/wallet-rendering/schemas/display-mapping-object.json"
-                            },
-                            "properties": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "https://identity.foundation/wallet-rendering/schemas/labeled-display-mapping-object.json"
-                                }
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    "styles": {
-                        "$ref": "https://identity.foundation/wallet-rendering/schemas/entity-styles.json"
-                    }
-                },
                 "additionalProperties": false
             }
         },
         "presentation_definition": {
-            "$ref": "https://identity.foundation/presentation-exchange/schemas/presentation-definition.json"
+            "type": "object",
+            "description": "An object that articulates an an input object presented to the issuer by an applicant that wants to satisfy the credential manifest and receive credentials listed in the output_descriptors",
+            "id": {
+                "type": "string",
+                "description": "A unique ID for the desired context used to map back to from the presentation_submission in the Credential Application"
+            },
+            "input_descriptors": {
+                "type": "array",
+                "description": "A list of objects used to describe the required verifiable credentials and their fields",
+                "items": {
+                    "type": "object",
+                    "description": "An object used to describe the required verifiable credentials",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The id property of the Input Descriptor in the Presentation Definition found in the Credential Manifest related to this Credential Application"
+                        },
+                        "constraints": {
+                            "type": "object",
+                            "description": "The value must match the format definition of the Credential Application above",
+                            "properties": {
+                                "fields": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "description": "one or more JSONPath string expressions that select a target value from the input_descriptors",
+                                        "properties": {
+                                            "path": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "path"
+                                        ],
+                                        "additionalProperties": false
+                                    }
+                                }
+                            },
+                            "required": [
+                                "fields"
+                            ],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "constraints"
+                    ],
+                    "additionalProperties": false
+                },
+                "required": [
+                    "id",
+                    "input_descriptors"
+                ],
+                "additionalProperties": false
+            }
         },
         "format": {
-            "$ref": "https://identity.foundation/claim-format-registry/schemas/presentation-definition-claim-format-designations.json"
+            "jwt_vc": {
+                "type": "object",
+                "description": "An object used to describe the JWT format of the verifiable credentials",
+                "properties": {
+                    "alg": {
+                        "type": "array",
+                        "description": "The algorithm used to sign the JWT",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "alg"
+                ],
+                "additionalProperties": false
+            }
         }
     },
     "required": [
         "id",
         "spec_version",
         "issuer",
-        "output_descriptors"
+        "output_descriptors",
+        "presentation_definition",
+        "format"
     ],
     "additionalProperties": false
 }

@@ -37,19 +37,28 @@
     },
     "presentation_definition": {
         "id": "phone-number-presentation",
+        "name": "Phone Number Presentation",
         "input_descriptors": [
             {
-                "id": "phone-number-input-descriptor",
-                "purpose": "Prove ownership of a phone number",
-                "constraints": {
-                    "fields": [
-                        {
-                            "path": [
-                                "$.credentialSubject.phoneNumber"
+                "id": "phone-number-presentation",
+                "name": "Phone Number Presentation",
+                "purpose": "Used to present proof that an applicant owns the enclosed phone number by providing the enclosed one-time password (otp)",
+                "input_descriptors": [
+                    {
+                        "id": "phone-number-input-descriptor",
+                        "purpose": "The holder of this credential has proven ownership of the enclosed phone number by providing the correct one-time password (otp)",
+                        "constraints": {
+                            "fields": [
+                                {
+                                    "path": [
+                                        "$.credentialSubject.phoneNumber",
+                                        "$.credentialSubject.otp"
+                                    ]
+                                }
                             ]
                         }
-                    ]
-                }
+                    }
+                ]
             }
         ]
     }

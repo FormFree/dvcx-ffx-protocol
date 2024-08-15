@@ -30,6 +30,15 @@
     "structure": {
         "manifest": {},
         "application": {
+            "$actions": [
+                {
+                    "who": "author",
+                    "of": "application",
+                    "can": [
+                        "update"
+                    ]
+                }
+            ],
             "response": {
                 "$actions": [
                     {

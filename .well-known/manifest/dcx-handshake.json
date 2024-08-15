@@ -1,5 +1,5 @@
 {
-    "id": "DCX-HANDSHAKE-MANIFEST",
+    "id": "DCX-HANDSHAKE",
     "name": "DCX Applicant-Issuer Handshake Manifest",
     "description": "Basic handshake manifest used to establish a connection between a DCX applicant and a DCX issuer.",
     "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
@@ -25,7 +25,7 @@
     },
     "output_descriptors": [
         {
-            "id": "dcx_handshake_output",
+            "id": "dcx-handshake-output",
             "name": "DCX Handshake Credential",
             "schema": "https://formfree.github.io/.well-known/credential/DcxHandshakeCredential.json"
         }
@@ -38,25 +38,25 @@
         }
     },
     "presentation_definition": {
-        "id": "dcx_handshake_presentation",
+        "id": "dcx-handshake-presentation",
         "input_descriptors": [
             {
-                "id": "dcx_handshake_input",
-                "purpose": "DCX Applicant initiates handshake proving did ownership",
+                "id": "dcx-handshake-input",
+                "purpose": "DCX Applicant initiates handshake with challenge 'Hello-DCX-<random_uuid>' in plain text and a signed challenge which is a signature on that plain text challenge.",
                 "constraints": {
                     "fields": [
                         {
                             "path": [
-                                "$.type[*]"
+                                "$.credentialSubject.challenge"
                             ],
                             "filter": {
                                 "type": "string",
-                                "pattern": "^*$"
+                                "pattern": "^Hello-DCX-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
                             }
                         },
                         {
                             "path": [
-                                "$.credentialSubject.did"
+                                "$.credentialSubject.signedChallenge"
                             ]
                         }
                     ]

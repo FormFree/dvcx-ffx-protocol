@@ -1,28 +1,14 @@
 {
-    "$id": "https://formfree.github.io/.well-known/schema/dcx-otp-record.json",
+    "$id": "https://formfree.github.io/.well-known/schema/mfa-record.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "OTP Phone or Email",
+    "title": "Phone or Email mfa OTP",
     "type": "object",
     "properties": {
-        "otp": {
+        "mfa": {
             "type": "object",
             "required": [
-                "pin"
+                "otp"
             ],
-            "properties": {
-                "pin": {
-                    "type": "string",
-                    "pattern": "^[0-9]{6}$"
-                },
-                "phone": {
-                    "type": "string",
-                    "pattern": "^\\d{10}$"
-                },
-                "email": {
-                    "type": "string",
-                    "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
-                }
-            },
             "oneOf": [
                 {
                     "required": [
@@ -34,12 +20,26 @@
                         "email"
                     ]
                 }
-            ]
+            ],
+            "properties": {
+                "otp": {
+                    "type": "string",
+                    "pattern": "^[0-9]{6}$"
+                },
+                "phone": {
+                    "type": "string",
+                    "pattern": "^\\d{10}$"
+                },
+                "email": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+                }
+            }
         },
         "additionalProperties": false
     },
     "required": [
-        "otp"
+        "mfa"
     ],
     "additionalProperties": false
 }

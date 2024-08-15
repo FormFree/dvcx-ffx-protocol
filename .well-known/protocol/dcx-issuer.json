@@ -51,6 +51,7 @@
                     "of": "application",
                     "can": [
                         "read"
+                        // do we want to allow the author to update the application?
                     ]
                 }
             ],
