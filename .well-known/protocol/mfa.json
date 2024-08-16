@@ -12,6 +12,38 @@
     "structure": {
         "mfa": {
             "$actions": [
+                {
+                    "who": "author",
+                    "of": "mfa",
+                    "can": [
+                        "update",
+                        "delete"
+                    ]
+                }
+            ],
+            "phone": {
+                "$actions": [
+                    {
+                        "who": "author",
+                        "of": "mfa",
+                        "can": [
+                            "create",
+                            "update",
+                            "read",
+                            "delete"
+                        ]
+                    },
+                    {
+                        "who": "recipient",
+                        "of": "mfa",
+                        "can": [
+                            "read"
+                        ]
+                    }
+                ]
+            },
+            "email": {
+                "$actions": [
                     {
                         "who": "author",
                         "of": "mfa",
@@ -21,8 +53,37 @@
                             "update",
                             "delete"
                         ]
+                    },
+                    {
+                        "who": "recipient",
+                        "of": "mfa",
+                        "can": [
+                            "read"
+                        ]
                     }
                 ]
+            },
+            "otp": {
+                "$actions": [
+                    {
+                        "who": "author",
+                        "of": "mfa",
+                        "can": [
+                            "read"
+                        ]
+                    },
+                    {
+                        "who": "recipient",
+                        "of": "mfa",
+                        "can": [
+                            "create",
+                            "read",
+                            "update",
+                            "delete"
+                        ]
+                    }
+                ]
+            },
         }
     }
 }

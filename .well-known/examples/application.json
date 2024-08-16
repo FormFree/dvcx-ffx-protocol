@@ -14,9 +14,8 @@
         "manifest_id": "WA-DL-CLASS-A",
         "format": {
             "jwt_vc": {
-                "proof_type": [
-                    "JsonWebSignature2020",
-                    "EcdsaSecp256k1Signature2019"
+                "alg": [
+                    "EdDSA"
                 ]
             }
         },
