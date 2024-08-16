@@ -4,6 +4,20 @@
     "title": "Credential Application",
     "type": "object",
     "properties": {
+        "@context": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The @context of the application"
+        },
+        "type": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The type property of the application"
+        },
         "id": {
             "type": "string",
             "description": "A unique identifier, such as a UUID"

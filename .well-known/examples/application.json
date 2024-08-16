@@ -13,7 +13,7 @@
         "applicant": "did:example:123",
         "manifest_id": "WA-DL-CLASS-A",
         "format": {
-            "ldp_vc": {
+            "jwt_vc": {
                 "proof_type": [
                     "JsonWebSignature2020",
                     "EcdsaSecp256k1Signature2019"
