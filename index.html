@@ -11,8 +11,49 @@
     <img src="/images/hero.jpg" height="250" width="750" />
     <div style="padding: 0 0.25em">
         <h1>FormFree</h1>
-        <p>This repo contains links to FOSS projects and .well-known files for FormFree Holdings Corporation</p>
+        <p>
+            FormFree empowers consumers to understand their ability to pay and share it with lenders like never before.
+            Using FormFree's <a target="_blank" href="https://formfree.com/passport/">Passport app</a>, consumers can
+            share all the core financial data required by loan underwriters — including identity, assets, income,
+            employment, credit history and cash-flow data — in seconds.
+        </p>
+        <p>
+            Once consumers are ready to transact, they can anonymously share their data on the <a target="_blank"
+                href="https://formfree.com/ffx/">FormFree Exchange (FFX)</a> and receive immediate offers from a
+            marketplace of lenders who fully understand their ability to pay, residual income and eligibility for
+            down payment assistance and inclusive lending programs.
+        </p>
+        <ul>
+            <li>
+                For more information, visit <a target="_blank" href="https://www.formfree.com/">formfree.com</a>
+            </li>
+            <li>
+                Follow FormFree on <a target="_blank" href="https://www.linkedin.com/company/formfree/">LinkedIn</a> for
+                ongoing updates
+            </li>
+        </ul>
         <div>
+            <h4>FOSS</h4>
+            <h5>DCX</h5>
+            <div>
+                DCX is a new Decentralized Web Node (DWN) protocol that securely and privately facilitates the
+                decentralized exchange of a user's verifiable credentials for different verifiable credential. The npm
+                package implements each side of the protocol along with a common library and a server. For more
+                information about DCX, check out the following links:
+            </div>
+            <ul>
+                <li>
+                    <a target="_blank" href="https://github.com/TBD54566975/incubation-dcx">
+                        github.com/TBD54566975/incubation-dcx
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.npmjs.com/package/@dcx-protocol/root">
+                        npmjs.com/package/@dcx-protocol/root
+                    </a>
+                </li>
+            </ul>
+
             <div>
                 <h4>Verfiable Credentials</h4>
                 <p>Below are schema definitions of verfiable credentials issued by FormFree.</p>
@@ -66,21 +107,6 @@
                     </li>
                 </ul>
             </div>
-            <h4>DCX</h4>
-            <p>For more information about DCX, check out the following links:</p>
-            <ul>
-                <li>
-                    <a target="_blank" href="https://github.com/TBD54566975/incubation-dcx">
-                        github.com/TBD54566975/incubation-dcx
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://www.npmjs.com/package/@dcx-protocol/root">
-                        npmjs.com/package/@dcx-protocol/root
-                    </a>
-                </li>
-            </ul>
-
             <div>
                 <h4>Protocols</h4>
                 <p>Below are protocol definitions for DCX: full protocol (issuer & applicant), issuer and applicant.
@@ -101,13 +127,34 @@
             </div>
             <div>
                 <h4>Schemas</h4>
+                <p>Below are schema definitions for DWN records used by FF. Schemas define the structure of the
+                    different DWN records
+                    defined in the Protocols section above. The schemas are used to construct and validate the DWN
+                    records.</p>
+                <h5>General</h5>
+                <ul>
+                    <li>
+                        <a target="_blank" href="/.well-known/schema/mfa-record.json">MFA Record Schema</a>
+                        <ul>
+                            <li>Schema definition for MFA DWN records.</li>
+                            <li>Created by applicants and issuers to facilitate the verification of an applicant
+                                phone
+                                or email.</li>
+                            <li>Implemented by the MFA protocol <a target="_blank"
+                                    href="/.well-known/protocol/mfa.json">(see
+                                    /protocol/mfa.json)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h5>DCX</h5>
                 <ul>
                     <li>
                         <a target="_blank" href="/.well-known/schema/dcx-application-record.json">Application Record
                             Schema</a>
                         <ul>
                             <li>
-                                Schema definition for application DWN records. Submitted by DCX applicants to DCX issuer
+                                Schema definition for application DWN records. Submitted by DCX applicants to DCX
+                                issuer
                                 DWNs.
                             </li>
                             <li>
@@ -135,7 +182,8 @@
                                 </a>
                             </li>
                             <li>
-                                Defines the input credentials required to obtain an output credential and the type of
+                                Defines the input credentials required to obtain an output credential and the type
+                                of
                                 output
                                 credential.
                             </li>
@@ -158,7 +206,8 @@
                     </li>
                     <br />
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-invoice-record.json">Invoice Record Schema</a>
+                        <a target="_blank" href="/.well-known/schema/dcx-invoice-record.json">Invoice Record
+                            Schema</a>
                         <ul>
                             <li>Optional Schema definition for invoice DWN records.</li>
                             <li>Created by DCX issuers and sent to DCX applicant DWNs.</li>
