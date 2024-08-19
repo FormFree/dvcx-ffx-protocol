@@ -32,9 +32,9 @@
                 ongoing updates
             </li>
         </ul>
+        <hr />
         <div>
-            <h4>FOSS</h4>
-            <h5>DCX</h5>
+            <h3><u>DCX</u></h3>
             <div>
                 DCX is a new Decentralized Web Node (DWN) protocol that securely and privately facilitates the
                 decentralized exchange of a user's verifiable credentials for different verifiable credential. The npm
@@ -55,7 +55,7 @@
             </ul>
 
             <div>
-                <h4>Verfiable Credentials</h4>
+                <h3><u>Credentials</u></h3>
                 <p>Below are schema definitions of verfiable credentials issued by FormFree.</p>
                 <ul>
                     <li>
@@ -76,18 +76,19 @@
                 </ul>
             </div>
             <div>
-                <h4>Issuer Dids</h4>
+                <h3><u>DID Documents</u></h3>
+                <p>Below are DID documents for FormFree and our trusted issuers.</p>
                 <ul>
                     <li>
-                        <a target="_blank" href="/.well-known/issuers/formfree.json">FormFree DID Document</a>
+                        <a target="_blank" href="/.well-known/dids/formfree.json">FormFree DID Document</a>
                     </li>
                     <li>
-                        <a target="_blank" href="/.well-known/issuers/mx.json">MX DID Document</a>
+                        <a target="_blank" href="/.well-known/dids/mx.json">MX DID Document</a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h4>Credential Manifests</h4>
+                <h3><u>Manifests</u></h3>
                 <p>Below are credential manifest definitions used during presentation exchange by FormFree.</p>
                 <ul>
                     <li>
@@ -108,15 +109,16 @@
                 </ul>
             </div>
             <div>
-                <h4>Protocols</h4>
-                <p>Below are protocol definitions for DCX: full protocol (issuer & applicant), issuer and applicant.
+                <h3><u>Protocols</u></h3>
+                <h4><i>DCX</i></h4>
+                <p>Below are protocol definitions for DCX: full protocol (combined verifier & applicant), verifier only and applicant only.
                     Protocols define the CRUD operations permitted on the different DWN records defined in the
                     Schemas section below. The full DCX protocol is not implemented directly. It is implemented
                     separately but is provided here for reference.</p>
                 <ul>
                     <li><a target="_blank" href="/.well-known/protocol/dcx.json">Full Protocol</a></li>
                     <li>
-                        <a target="_blank" href="/.well-known/protocol/dcx-issuer.json">Issuer Protocol</a>
+                        <a target="_blank" href="/.well-known/protocol/dcx-verifier.json">Verifier Protocol</a>
                     </li>
                     <li>
                         <a target="_blank" href="/.well-known/protocol/dcx-applicant.json">
@@ -126,12 +128,12 @@
                 </ul>
             </div>
             <div>
-                <h4>Schemas</h4>
+                <h3><u>Schemas</u></h3>
                 <p>Below are schema definitions for DWN records used by FF. Schemas define the structure of the
                     different DWN records
                     defined in the Protocols section above. The schemas are used to construct and validate the DWN
                     records.</p>
-                <h5>General</h5>
+                <h4><i>General</i></h4>
                 <ul>
                     <li>
                         <a target="_blank" href="/.well-known/schema/mfa-record.json">MFA Record Schema</a>
@@ -146,33 +148,31 @@
                         </ul>
                     </li>
                 </ul>
-                <h5>DCX</h5>
+                <h4><i>DCX</i></h4>
                 <ul>
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-application-record.json">Application Record
+                        <a target="_blank" href="/.well-known/schema/dcx-application-record.json">Credential Application Record
                             Schema</a>
                         <ul>
                             <li>
-                                Schema definition for application DWN records. Submitted by DCX applicants to DCX
-                                issuer
-                                DWNs.
+                                Schema definition for credential application DWN records submitted by DCX applicant to DCX
+                                verifier DWN.
                             </li>
                             <li>
-                                Includes the actual input credential proofs of credentials currently held by DCX
-                                applicants.
+                                Includes the actual input credentials currently held by DCX applicant.
                             </li>
                             <li>
-                                Used to request a new output credential from a DCX issuer.
+                                Used to request a new output credential from a DCX verifier.
                             </li>
                         </ul>
                     </li>
                     <br />
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-manifest-record.json">Manifest Record
+                        <a target="_blank" href="/.well-known/schema/dcx-manifest-record.json">Credential Manifest Record
                             Schema</a>
                         <ul>
                             <li>
-                                Schema definition for manifest DWN records. Created by issuers in their own DWNs.
+                                Schema definition for credential manifest DWN records. Created by DCX verifiers in their own DWNs.
                             </li>
                             <li>
                                 Conforms to the DIF spec for
@@ -183,35 +183,32 @@
                             </li>
                             <li>
                                 Defines the input credentials required to obtain an output credential and the type
-                                of
-                                output
-                                credential.
+                                of output credential that will be issued.
                             </li>
                             <li>
                                 Read by applicants and used to know what credentials they need to acquire before
-                                requesting
-                                an output credential from a DCX issuer.
+                                requesting an output credential from a DCX verifier and DCX issuer.
                             </li>
                         </ul>
                     </li>
                     <br />
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-response-record.json">Response Record
+                        <a target="_blank" href="/.well-known/schema/dcx-response-record.json">Credential Response Record
                             Schema</a>
                         <ul>
-                            <li>Schema definition for response DWN records.</li>
-                            <li>Created by DCX issuers in response to an application record.</li>
-                            <li>Contains either an approval + output VC or a denial + reasoning.</li>
+                            <li>Schema definition for credential response DWN records.</li>
+                            <li>Created by DCX verifiers in response to a credential application record.</li>
+                            <li>Contains either a fulfillment or a denial.</li>
                         </ul>
                     </li>
                     <br />
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-invoice-record.json">Invoice Record
+                        <a target="_blank" href="/.well-known/schema/dcx-invoice-record.json">DCX Invoice Record
                             Schema</a>
                         <ul>
                             <li>Optional Schema definition for invoice DWN records.</li>
-                            <li>Created by DCX issuers and sent to DCX applicant DWNs.</li>
-                            <li>Currently unimplemented in the DCX npm package.</li>
+                            <li>Created by DCX verifiers and sent to DCX applicant DWNs.</li>
+                            <li>Currently unimplemented.</li>
                         </ul>
                     </li>
                     <br />
