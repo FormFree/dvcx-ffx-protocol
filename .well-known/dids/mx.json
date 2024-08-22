@@ -1,4 +1,62 @@
 {
-    "id": "did:dht:sa713dw7jyg44ejwcdf8iqcseh7jcz51wj6fjxbooj41ipeg76eo",
-    "name": "mx"
+    "@context": "https://w3id.org/did-resolution/v1",
+    "didResolutionMetadata": {},
+    "didDocument": {
+        "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy",
+        "verificationMethod": [
+            {
+                "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0",
+                "type": "JsonWebKey",
+                "controller": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy",
+                "publicKeyJwk": {
+                    "kty": "OKP",
+                    "crv": "Ed25519",
+                    "x": "4wu0b2EK9atqFXt3c_6RegTwKzu0-l20eibE3-aqBCg",
+                    "kid": "-VR8gBA1rFo25DV63BmsxQ3bXYEptwu94QsUAcMzTGA",
+                    "alg": "EdDSA"
+                }
+            },
+            {
+                "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#sig",
+                "type": "JsonWebKey",
+                "controller": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy",
+                "publicKeyJwk": {
+                    "kty": "OKP",
+                    "crv": "Ed25519",
+                    "x": "wgJJSud6AupDaaam9jxZv_evpzQQorD4WIGV0xUXtIc",
+                    "kid": "Ay0A46vqeeTbchPbBKMMHWucDFyBttAcyaDyukLZLcA",
+                    "alg": "EdDSA"
+                }
+            }
+        ],
+        "service": [
+            {
+                "enc": "#enc",
+                "sig": "#sig",
+                "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#dwn",
+                "type": "DecentralizedWebNode",
+                "serviceEndpoint": [
+                    "https://dwn.tbddev.org/beta"
+                ]
+            }
+        ],
+        "authentication": [
+            "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0",
+            "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#sig"
+        ],
+        "assertionMethod": [
+            "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0",
+            "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#sig"
+        ],
+        "capabilityDelegation": [
+            "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0"
+        ],
+        "capabilityInvocation": [
+            "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy#0"
+        ]
+    },
+    "didDocumentMetadata": {
+        "published": true,
+        "versionId": "1723859632"
+    }
 }
