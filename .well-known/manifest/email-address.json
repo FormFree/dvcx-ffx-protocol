@@ -38,27 +38,21 @@
     "presentation_definition": {
         "id": "email-address-presentation",
         "name": "Email Address Presentation",
+        "purpose": "Used to present proof that an applicant owns the enclosed email address by providing the enclosed otp",
         "input_descriptors": [
             {
-                "id": "email-address-presentation",
-                "name": "Email Address Presentation",
-                "purpose": "Used to present proof that an applicant owns the enclosed email address by providing the enclosed otp",
-                "input_descriptors": [
-                    {
-                        "id": "email-address-input-descriptor",
-                        "purpose": "The holder of this credential has proven ownership of the enclosed email address by providing the correct one-time password (otp)",
-                        "constraints": {
-                            "fields": [
-                                {
-                                    "path": [
-                                        "$.credentialSubject.emailAddress",
-                                        "$.credentialSubject.otp"
-                                    ]
-                                }
+                "id": "email-address-input-descriptor",
+                "purpose": "The holder of this credential has proven ownership of the enclosed email address by providing the correct one-time password (otp)",
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.credentialSubject.emailAddress",
+                                "$.credentialSubject.otp"
                             ]
                         }
-                    }
-                ]
+                    ]
+                }
             }
         ]
     }
