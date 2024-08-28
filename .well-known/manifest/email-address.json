@@ -1,5 +1,5 @@
 {
-    "id": "EMAIL-ADDRESS-MANIFEST",
+    "id": "EMAIL-ADDRESS-MFA-MANIFEST",
     "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
     "issuer": {
         "id": "https://formfree.github.io/.well-known/issuers/formfree.json",
