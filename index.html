@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FormFree Protocols & Schemas | formfree.github.io</title>
+    <title>FormFree | formfree.github.io</title>
 </head>
 
 <body style="max-width: 50pc;margin: 0 auto;">
@@ -111,14 +111,22 @@
             <div>
                 <h3><u>Protocols</u></h3>
                 <h4><i>DCX</i></h4>
-                <p>Below are protocol definitions for DCX: full protocol (combined verifier & applicant), verifier only and applicant only.
-                    Protocols define the CRUD operations permitted on the different DWN records defined in the
-                    Schemas section below. The full DCX protocol is not implemented directly. It is implemented
-                    separately but is provided here for reference.</p>
+                <p>
+                    Below are protocol definitions for DCX: full protocol (combined verifier & applicant), verifier only
+                    and applicant only. Protocols define the CRUD operations permitted on the different DWN records
+                    defined in the Schemas section below. The full DCX protocol is not implemented directly. It is
+                    implemented separately but is provided here for reference.
+                </p>
                 <ul>
-                    <li><a target="_blank" href="/.well-known/protocol/dcx.json">Full Protocol</a></li>
                     <li>
-                        <a target="_blank" href="/.well-known/protocol/dcx-verifier.json">Verifier Protocol</a>
+                        <a target="_blank" href="/.well-known/protocol/dcx.json">
+                            Full Protocol
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="/.well-known/protocol/dcx-verifier.json">
+                            Verifier Protocol
+                        </a>
                     </li>
                     <li>
                         <a target="_blank" href="/.well-known/protocol/dcx-applicant.json">
@@ -129,34 +137,48 @@
             </div>
             <div>
                 <h3><u>Schemas</u></h3>
-                <p>Below are schema definitions for DWN records used by FF. Schemas define the structure of the
-                    different DWN records
-                    defined in the Protocols section above. The schemas are used to construct and validate the DWN
-                    records.</p>
+                <p>
+                    Below are schema definitions for DWN records used by FF. Schemas define the structure of the
+                    different DWN records defined in the Protocols section above. The schemas are used to construct and
+                    validate the DWN records.
+                </p>
                 <h4><i>General</i></h4>
                 <ul>
                     <li>
                         <a target="_blank" href="/.well-known/schema/mfa-record.json">MFA Record Schema</a>
                         <ul>
-                            <li>Schema definition for MFA DWN records.</li>
-                            <li>Created by applicants and issuers to facilitate the verification of an applicant
-                                phone
-                                or email.</li>
-                            <li>Implemented by the MFA protocol <a target="_blank"
-                                    href="/.well-known/protocol/mfa.json">(see
-                                    /protocol/mfa.json)</a></li>
+                            <li>
+                                Schema definition for MFA DWN records.
+                            </li>
+                            <li>
+                                Created by applicants and issuers to facilitate the verification of an applicant phone
+                                or email.
+                            </li>
+                            <li>
+                                Implemented by the MFA protocol
+                                <a target="_blank" href="/.well-known/protocol/mfa.json">
+                                    (click here to view protocol definition)
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
                 <h4><i>DCX</i></h4>
                 <ul>
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-application-record.json">Credential Application Record
-                            Schema</a>
+                        <a target="_blank" href="/.well-known/schema/dcx-application-record.json">
+                            Application Record Schema
+                        </a>
                         <ul>
                             <li>
-                                Schema definition for credential application DWN records submitted by DCX applicant to DCX
-                                verifier DWN.
+                                Conforms to the DIF specification for a <a target="_blank"
+                                    href="https://identity.foundation/credential-manifest/#credential-application/">
+                                    credential application.
+                                </a>
+                            </li>
+                            <li>
+                                Schema definition for credential application DWN records submitted by DCX applicant to
+                                DCX verifier DWN.
                             </li>
                             <li>
                                 Includes the actual input credentials currently held by DCX applicant.
@@ -168,17 +190,18 @@
                     </li>
                     <br />
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-manifest-record.json">Credential Manifest Record
-                            Schema</a>
+                        <a target="_blank" href="/.well-known/schema/dcx-manifest-record.json">
+                            Manifest Record Schema
+                        </a>
                         <ul>
                             <li>
-                                Schema definition for credential manifest DWN records. Created by DCX verifiers in their own DWNs.
+                                Schema definition for manifest records written by dcx verifiers to their
+                                own dwn and read by dcx applicants.
                             </li>
                             <li>
-                                Conforms to the DIF spec for
-                                <a target="_blank"
-                                    href="https://github.com/TBD54566975/incubation-dcx?tab=readme-ov-file#credential-manifest">
-                                    credential manifests.
+                                Conforms to the DIF specification for a <a target="_blank"
+                                    href="https://identity.foundation/credential-manifest/#credential-manifest/">
+                                    credential manifest.
                                 </a>
                             </li>
                             <li>
@@ -187,27 +210,35 @@
                             </li>
                             <li>
                                 Read by applicants and used to know what credentials they need to acquire before
-                                requesting an output credential from a DCX verifier and DCX issuer.
+                                requesting an output credential from a dcx verifier and dcx issuer.
                             </li>
                         </ul>
                     </li>
                     <br />
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-response-record.json">Credential Response Record
-                            Schema</a>
+                        <a target="_blank" href="/.well-known/schema/dcx-response-record.json">
+                            Response Record Schema
+                        </a>
                         <ul>
+                            <li>
+                                Conforms to the DIF specification for a <a target="_blank"
+                                    href="https://identity.foundation/credential-manifest/#credential-response//">
+                                    credential response.
+                                </a>
+                            </li>
                             <li>Schema definition for credential response DWN records.</li>
-                            <li>Created by DCX verifiers in response to a credential application record.</li>
+                            <li>Created by dcx verifiers in response to a credential application record.</li>
                             <li>Contains either a fulfillment or a denial.</li>
                         </ul>
                     </li>
                     <br />
                     <li>
-                        <a target="_blank" href="/.well-known/schema/dcx-invoice-record.json">DCX Invoice Record
-                            Schema</a>
+                        <a target="_blank" href="/.well-known/schema/dcx-invoice-record.json">
+                            Invoice Record Schema
+                        </a>
                         <ul>
                             <li>Optional Schema definition for invoice DWN records.</li>
-                            <li>Created by DCX verifiers and sent to DCX applicant DWNs.</li>
+                            <li>Created by dcx verifiers and sent to dcx applicant DWNs.</li>
                             <li>Currently unimplemented.</li>
                         </ul>
                     </li>
