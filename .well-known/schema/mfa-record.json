@@ -1,45 +1,36 @@
 {
     "$id": "https://formfree.github.io/.well-known/schema/mfa-record.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Phone or Email mfa OTP",
+    "title": "Phone or Email MFA Record Schema",
     "type": "object",
     "properties": {
-        "mfa": {
-            "type": "object",
-            "required": [
-                "otp"
-            ],
-            "oneOf": [
-                {
-                    "required": [
-                        "phone"
-                    ]
-                },
-                {
-                    "required": [
-                        "email"
-                    ]
-                }
-            ],
-            "properties": {
-                "otp": {
-                    "type": "string",
-                    "pattern": "^[0-9]{6}$"
-                },
-                "phone": {
-                    "type": "string",
-                    "pattern": "^\\d{10}$"
-                },
-                "email": {
-                    "type": "string",
-                    "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
-                }
-            }
+        "otp": {
+            "type": "string",
+            "pattern": "^[0-9]{6}$"
         },
-        "additionalProperties": false
+        "phone": {
+            "type": "string",
+            "pattern": "^\\d{10}$"
+        },
+        "email": {
+            "type": "string",
+            "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+        }
     },
+    "oneOf": [
+        {
+            "required": [
+                "phone"
+            ]
+        },
+        {
+            "required": [
+                "email"
+            ]
+        }
+    ],
     "required": [
-        "mfa"
+        "otp"
     ],
     "additionalProperties": false
 }
