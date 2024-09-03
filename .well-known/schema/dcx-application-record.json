@@ -36,9 +36,10 @@
         },
         "format": {
             "type": "object",
-            "description": "A subset of the format property in the Credential that this Credential Application is related to. This Credential Application strictly uses the jwt_vc format",
-            "jwt_vc": {
+            "description": "A subset of the format property in the Credential that this Credential Application is related to. This Credential Application strictly uses the jwt format",
+            "jwt": {
                 "type": "object",
+                "description": "An object used to describe the JWT format of the verifiable credentials",
                 "properties": {
                     "alg": {
                         "type": "array",
@@ -55,7 +56,7 @@
                 "additionalProperties": false
             },
             "required": [
-                "jwt_vc"
+                "jwt"
             ],
             "additionalProperties": false
         },
@@ -111,8 +112,8 @@
         "spec_version",
         "applicant",
         "manifest_id",
-        "format",
-        "presentation_submission"
+        "presentation_submission",
+        "format"
     ],
     "additionalProperties": false
 }

@@ -29,7 +29,7 @@
         }
     ],
     "format": {
-        "jwt_vc": {
+        "jwt": {
             "alg": [
                 "EdDSA"
             ]

@@ -84,7 +84,7 @@
                     "type": "string",
                     "enum": [
                         "jwt",
-                        "jwt_vc",
+                        "jwt",
                         "jwt_vp",
                         "ldp",
                         "ldp_vc",
