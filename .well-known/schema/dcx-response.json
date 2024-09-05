@@ -43,7 +43,24 @@
                         "descriptor_map": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/descriptor"
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "format": {
+                                        "type": "string"
+                                    },
+                                    "path": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "id",
+                                    "format",
+                                    "path"
+                                ],
+                                "additionalProperties": false
                             }
                         }
                     },
@@ -84,35 +101,6 @@
                     ]
                 }
             ],
-            "definitions": {
-                "descriptor": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "path": {
-                            "type": "string"
-                        },
-                        "format": {
-                            "type": "string",
-                            "enum": [
-                                "jwt"
-                            ]
-                        },
-                        "path_nested": {
-                            "type": "object",
-                            "$ref": "#/definitions/descriptor"
-                        }
-                    },
-                    "required": [
-                        "id",
-                        "path",
-                        "format"
-                    ],
-                    "additionalProperties": false
-                }
-            },
             "required": [
                 "id",
                 "spec_version",
