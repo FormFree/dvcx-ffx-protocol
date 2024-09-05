@@ -1,27 +1,27 @@
 {
-    "protocol": "https://formfree.github.io/.well-known/protocol/dcx",
+    "protocol": "https://formfree.github.io/.well-known/protocol/dcx.json",
     "published": false,
     "types": {
         "application": {
-            "schema": "https://formfree.github.io/.well-known/schema/dcx-application-record.json",
+            "schema": "https://formfree.github.io/.well-known/schema/dcx-application.json",
             "dataFormats": [
                 "application/json"
             ]
         },
         "manifest": {
-            "schema": "https://formfree.github.io/.well-known/schema/dcx-manifest-record.json",
+            "schema": "https://formfree.github.io/.well-known/schema/dcx-manifest.json",
             "dataFormats": [
                 "application/json"
             ]
         },
         "response": {
-            "schema": "https://formfree.github.io/.well-known/schema/dcx-response-record.json",
+            "schema": "https://formfree.github.io/.well-known/schema/dcx-response.json",
             "dataFormats": [
                 "application/json"
             ]
         },
         "invoice": {
-            "schema": "https://formfree.github.io/.well-known/schema/dcx-invoice-record.json",
+            "schema": "https://formfree.github.io/.well-known/schema/dcx-invoice.json",
             "dataFormats": [
                 "application/json"
             ]

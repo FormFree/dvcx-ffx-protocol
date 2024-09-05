@@ -4,6 +4,20 @@
     "title": "Credential Response",
     "type": "object",
     "properties": {
+        "@context": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The @context of the response"
+        },
+        "type": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "The type property of the response"
+        },
         "id": {
             "type": "string"
         },
@@ -19,7 +33,7 @@
         "application_id": {
             "type": "string"
         },
-        "response": {
+        "fulfillment": {
             "type": "object",
             "properties": {
                 "descriptor_map": {
@@ -57,7 +71,7 @@
     "oneOf": [
         {
             "required": [
-                "response"
+                "fulfillment"
             ]
         },
         {
@@ -84,11 +98,8 @@
                     "type": "string",
                     "enum": [
                         "jwt",
-                        "jwt",
-                        "jwt_vp",
-                        "ldp",
-                        "ldp_vc",
-                        "ldp_vp"
+                        "jwt_vc",
+                        "jwt_vp"
                     ]
                 }
             },
