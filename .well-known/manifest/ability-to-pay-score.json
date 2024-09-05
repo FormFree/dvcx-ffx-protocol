@@ -1,8 +1,8 @@
 {
-    "id": "ABILITY-TO-PAY-SCORE",
+    "id": "ability-to-pay-score-manifest",
     "spec_version": "https://identity.foundation/credential-manifest/spec/v1.0.0/",
     "issuer": {
-        "id": "https://formfree.github.io/.well-known/issuers/formfree.json",
+        "id": "did:dht:hcf5e55bbm44s4oixp5z89wtxenxyk35su7f5pd4r5np93ikyowy",
         "name": "FormFree",
         "styles": {
             "thumbnail": {

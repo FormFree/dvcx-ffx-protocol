@@ -116,6 +116,7 @@
             "required": [
                 "id",
                 "spec_version",
+                "applicant",
                 "manifest_id"
             ],
             "additionalProperties": false
