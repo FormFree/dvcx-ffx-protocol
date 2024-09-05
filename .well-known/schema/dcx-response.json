@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://formfree.github.io/.well-known/schema/dcx-response-record.json",
+    "$id": "https://formfree.github.io/.well-known/schema/dcx-response.json",
     "title": "Credential Response",
     "type": "object",
     "properties": {
@@ -18,103 +18,111 @@
             },
             "description": "The type property of the response"
         },
-        "id": {
-            "type": "string"
-        },
-        "spec_version": {
-            "type": "string"
-        },
-        "applicant": {
-            "type": "string"
-        },
-        "manifest_id": {
-            "type": "string"
-        },
-        "application_id": {
-            "type": "string"
-        },
-        "fulfillment": {
+        "credential_response": {
             "type": "object",
-            "properties": {
-                "descriptor_map": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/descriptor"
-                    }
-                }
-            },
-            "required": [
-                "descriptor_map"
-            ],
-            "additionalProperties": false
-        },
-        "denial": {
-            "type": "object",
-            "properties": {
-                "reason": {
-                    "type": "string"
-                },
-                "input_descriptors": {
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": [
-                "reason"
-            ],
-            "additionalProperties": false
-        }
-    },
-    "oneOf": [
-        {
-            "required": [
-                "fulfillment"
-            ]
-        },
-        {
-            "required": [
-                "denial"
-            ]
-        }
-    ],
-    "definitions": {
-        "descriptor": {
-            "type": "object",
+            "description": "The credential_response object",
             "properties": {
                 "id": {
                     "type": "string"
                 },
-                "path": {
+                "spec_version": {
                     "type": "string"
                 },
-                "path_nested": {
-                    "type": "object",
-                    "$ref": "#/definitions/descriptor"
+                "applicant": {
+                    "type": "string"
                 },
-                "format": {
-                    "type": "string",
-                    "enum": [
-                        "jwt",
-                        "jwt_vc",
-                        "jwt_vp"
+                "manifest_id": {
+                    "type": "string"
+                },
+                "application_id": {
+                    "type": "string"
+                },
+                "fulfillment": {
+                    "type": "object",
+                    "properties": {
+                        "descriptor_map": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/descriptor"
+                            }
+                        }
+                    },
+                    "required": [
+                        "descriptor_map"
+                    ],
+                    "additionalProperties": false
+                },
+                "denial": {
+                    "type": "object",
+                    "properties": {
+                        "reason": {
+                            "type": "string"
+                        },
+                        "input_descriptors": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": [
+                        "reason"
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "oneOf": [
+                {
+                    "required": [
+                        "fulfillment"
                     ]
+                },
+                {
+                    "required": [
+                        "denial"
+                    ]
+                }
+            ],
+            "definitions": {
+                "descriptor": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "path": {
+                            "type": "string"
+                        },
+                        "format": {
+                            "type": "string",
+                            "enum": [
+                                "jwt"
+                            ]
+                        },
+                        "path_nested": {
+                            "type": "object",
+                            "$ref": "#/definitions/descriptor"
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "path",
+                        "format"
+                    ],
+                    "additionalProperties": false
                 }
             },
             "required": [
                 "id",
-                "path",
-                "format"
+                "spec_version",
+                "manifest_id"
             ],
             "additionalProperties": false
         }
     },
     "required": [
-        "id",
-        "spec_version",
-        "manifest_id"
+        "credential_response"
     ],
     "additionalProperties": false
 }
